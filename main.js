@@ -72,11 +72,16 @@ document.querySelector('#answer3').innerHTML = `${outputList3}`
 
 let filteredItems4 = items.filter(function(item){
     const itemMat = item.materials
-    // console.log(itemMat)
-    return itemMat == 'wood'
+    // console.log(itemMat.includes('wood'))
+    return itemMat.includes('wood')
     
 })
-console.log(filteredItems4)
+let outputList4 = filteredItems4.map(function(item){
+    return `<li>${item.title}</li>`
+}).join('')
+
+document.querySelector('#answer4').innerHTML = `${outputList4}`
+// console.log(filteredItems4)
 
 //5 
 // check the materials.lenghth is >= 8 or 9?
