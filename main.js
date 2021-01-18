@@ -1,4 +1,4 @@
-console.log(items)
+// console.log(items)
 
 //1
 
@@ -14,8 +14,8 @@ items.forEach(function (item) {
     const itemPrice = item.price
     total = total + item.price
 })
-const avgPrice = total/ totalNumberOfItems
-console.log(avgPrice)
+const avgPrice = Math.round((total/ totalNumberOfItems)*100)/100
+    // console.log(avgPrice)
 
 document.querySelector('#answer1').innerHTML = `$${avgPrice}`
 
@@ -53,8 +53,8 @@ let filteredItems3 = items.filter(function(item){
 
 
 let outputList3 = filteredItems3.map(function(item){
-    return `<li>${item.title}</li>
-            <li>$${item.price}</li>`
+    return `<li>${item.title} \u00A3${item.price}</li>`
+            
 }).join('')
 
 
@@ -77,7 +77,7 @@ let filteredItems4 = items.filter(function(item){
     
 })
 let outputList4 = filteredItems4.map(function(item){
-    return `<li>${item.title}</li>`
+    return `<li>${item.title} is made of wood</li>`
 }).join('')
 
 document.querySelector('#answer4').innerHTML = `${outputList4}`
@@ -95,9 +95,9 @@ let filteredItems5 = items.filter(function(item) {
 })
 
 let outputList5 = filteredItems5.map(function(item){
-    return `<li>${item.title}</li>
-            <li>${item.quantity}</li>
-            <li>${item.materials}</li>`
+    return `<li>${item.title} has ${item.materials.length} materials:</li>
+            <li>${item.materials}</li>
+            `
 }).join('')
 
 document.querySelector('#answer5').innerHTML = `${outputList5}`
@@ -107,4 +107,14 @@ document.querySelector('#answer5').innerHTML = `${outputList5}`
 
 //6 
 // who made and i_did properties
+let filteredItems6 = items.filter(function(item){
+    const itemMake = item.who_made
+    // console.log(itemMake.includes('i_did'))
+    return itemMake.includes('i_did')
+})
 
+
+let outputList6 = filteredItems6.length + " were made by their sellers"
+
+
+document.querySelector('#answer6').innerHTML = `${outputList6}`
